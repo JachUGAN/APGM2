@@ -1,14 +1,40 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>APGM2</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <title><%= full_title(yield(:title)) %></title>		<!-- :title is defined in the top of each page + full_title is defined in the app/helpers/application_helper.rb-->
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
-</head>
-<body>
 
-<%= yield %>
+  	<link rel="stylesheet" type="text/css" href="/css/bootstrap-wysihtml5.css"></link>
+	<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css"></link>
+	<!--<script src="js/wysihtml5-0.3.0.js"></script>-->
+	<script src="js/jquery-1.7.2.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<!--<script src="js/bootstrap-wysihtml5.js"></script>
+	<script src="js/ckeditor/ckeditor.js"></script> ENABLE LATER WHEN THE WISIWIG IS WORKING-->
+
+
+</head>
+
+<body>
+<%= render 'layouts/header' %>		<!--calls  _header.html.erb-->
+
+
+<div class="container">		<!--code to include a page content in the layout + container is a bootstrap function-->
+	
+	<% flash.each do |key, value| %>		<!--Initialization of the flash messages for error display -->
+	<div class="alert alert-<%= key %>"><%= value %></div>
+	<% end %>
+
+
+	<%= yield %>
+
+	<%= debug(params) if Rails.env.development? %>
+</div>
+
+<%= render 'layouts/footer' %>
 
 </body>
+
 </html>

@@ -1,0 +1,283 @@
+@import "bootstrap";
+
+@mixin box_sizing {
+-moz-box-sizing: border-box;
+-webkit-box-sizing: border-box;
+box-sizing: border-box;
+}
+
+
+$grayMediumLight: #eaeaea;
+
+/* universal */
+html {
+	overflow-y: scroll;
+}
+
+body {
+	padding-top: 80px;			/*Jach allows to put space from the header */
+	border-width: 1024px;
+}
+
+section {
+	overflow: auto;
+}
+
+textarea {
+	resize: vertical;
+}
+
+.container {
+	width: 1024px;
+	// height: 800px; Creates some huge ass problem :/;
+	height: auto;
+
+}
+
+.navbar .container {
+	width: 1024px;
+}
+
+.center {			/*associates the center class with the text-align: center property. In other words,the dot . in .center indicates that the rule styles a class*/
+	
+	text-align: center;
+
+}
+
+.title {
+	font-size: 20px;
+	padding-top: 10px;
+}
+
+.center h1 {
+	margin-bottom: 10px;
+}
+
+.navbar-inner {
+  background-color: #333333;
+  background-image: none;		/*it seems boostrap uses a backgound image*/
+  background-repeat: no-repeat;
+  filter: none;
+  height: 40px; 	
+
+}
+
+.btn-login {
+	font-size: 14px;
+	font-weight: bold;
+	background-color: white;
+	width: 80px;
+	right: 450px;
+	position: absolute;
+	//margin-left: 300px;
+	padding-top: 6px;
+
+}
+
+/*Upper Menu*/
+
+.nav {
+	display: inline-block;
+	margin-left: -50px;
+	//border: 1px solid white;	/*for testing purposes*/
+}
+
+.navbar .nav > li > a {
+
+		color: white;
+    padding: 7px 15px;
+    /*padding: 5px 15px;*/
+    text-decoration: none;
+    text-shadow: none;
+    font-family: "Verdana", Helvetica, Arial, sans-serif;
+		font-size: 14px;
+
+    }	/* Gives the li a white color xD*/
+
+
+.navbar .nav > li > a:hover {
+
+	background-color: transparent;
+	color: #777777;
+	text-decoration: none;
+}
+
+/**********************************/
+
+.navbar .nav > li > a:active {			
+	color: #777777;			//NOT WORKING
+}
+
+.title {
+	display: inline-block;	
+	color: white;
+	padding: 0px;
+	border: 1px solid white;
+
+}
+
+/*Profile Dropdown Menu */
+
+.dropdown-menu {
+	padding: 5px 0;
+	margin: 15px 0 0	;
+	background-color: white;
+	left: -0px;
+
+}
+
+.dropdown-menu > li > a {
+	display: inline-block;
+	padding: 3px 5px;
+	line-height: 15px;
+
+}
+
+.divider {
+    background-color: black;
+    border-bottom: 1px solid #FFFFFF;
+    height: 1px;
+    margin: 9px 1px;
+    overflow: hidden;
+}
+
+/* forms (new user, new article)*/
+input, textarea, select, .uneditable-input {
+	border: 1px solid #bbb;
+	width: 100%;
+	padding: 10px;
+	height: auto;
+	margin-bottom: 15px;
+	@include box_sizing;
+}
+
+#error_explanation {
+	color: #f00;
+	ul {
+	list-style: none;
+	margin: 0 0 18px 0;
+	}
+}
+
+.field_with_errors {
+	@extend .control-group;
+	@extend .error;
+}
+
+
+/*Hero Unit*/
+
+.hero-unit {
+	background-color: #EEEEEE;
+  border-radius: 6px 6px 6px 6px;
+  color: inherit;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  margin-bottom: 30px;
+  padding: 30px;
+}
+
+/* Articles */
+
+#ArticleBreakLine {
+	font-size: 50px;
+}
+
+/* Events */
+
+.EventTitle {
+	color: #0088cc;
+}
+
+/* WYSIHtml5 Rich Text Editor */
+
+.wysihtml5 {
+	height: 200px;
+}
+
+
+ul.wysihtml5-toolbar:after {
+    clear: both;
+    content: "";
+    display: table;
+}
+ul.wysihtml5-toolbar {
+    display: block;
+    margin-bottom: 7px;
+    padding: 0;
+
+}
+ul {
+    list-style: none outside none;
+}
+ul, ol {
+    margin: 0 0 9px 25px;
+    padding: 0;
+}
+
+ul li{
+  display: inline;
+  margin: 2px;
+}
+
+
+/*User Profile */
+.UserAvatar {
+	display: block;
+}
+.UserInfo {
+	display: inline-block;
+	font-size: 20px;
+}
+
+.profile {
+    td {
+    	padding: 10px;
+    	text-align: left;
+    	}
+    th {
+    	text-align: left;
+    }
+    
+}
+
+/*Events*/
+
+
+.eventsaside {				/*I'll HAVE TO TIDY THIS UP AFTER THE EVENTS CONTROLLER IS IMPLEMENTED*/
+border-left: 2px solid #eeeeee;
+border-color: #eeeeee;
+width: 100%;
+height: auto;
+padding-left: 15px;
+height: auto;
+min-height: 400px; 
+}
+
+
+/*Footer*/
+
+/* footer */
+footer {		 /*Fully Nested*/
+	margin-top: 45px;
+	padding-top: 5px;
+	border-top: 1px solid $grayMediumLight;
+	color: $grayLight;
+	a {
+		color: $gray;
+		}
+	small {
+		float: left;
+}
+ul {
+	float: right;
+	list-style: none;
+
+	li {
+		float: left;
+		margin-left: 10px;
+	}
+}
+}
+

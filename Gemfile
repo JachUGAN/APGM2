@@ -33,6 +33,13 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+#Gems added by me
+gem 'bootstrap-sass'
+gem 'annotate'
+####################
+
+
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
