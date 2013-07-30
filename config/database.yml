@@ -20,7 +20,7 @@ development:
   database: APGM2_development
   pool: 5
   username: Jashman
-  password: p0stgre
+  password: postgre
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -49,5 +49,5 @@ test:
   database: APGM2_test
   pool: 5
   username: Jashman
-  password: p0stgre
+  password: postgre
  
