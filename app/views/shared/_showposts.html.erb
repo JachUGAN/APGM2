@@ -1,7 +1,7 @@
 <% @posts.each do |post| %>
 
 	<h2> <%= link_to post.title, post %></h2>		<!-- rails automatically links to the post id when one clicks on it -->
-		<!--ADD THE REST LATER
+		<!--ADD THE REST LATER-->
 	<p> <%=raw post.content %> </p>					<!-- we put 'raw' so that rails displays the test in the database correctly and not with the html tags -->	
 	<small>Author:  The: <%= post.created_at %></small>		
 	<p> 
