@@ -36,6 +36,9 @@ end
 #Gems added by me
 gem 'bootstrap-sass'
 gem 'annotate'
+gem 'validates_timeliness'
+gem 'cancan'
+gem 'tinymce-rails'
 ####################
 
 

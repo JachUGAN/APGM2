@@ -1,0 +1,26 @@
+<% provide(:title, 'New Post')%>
+<h1>Create a new post</h1>
+
+
+
+<div class="row">
+	<div class="span9 offset0">
+		<div class="hero-unit">
+		<%= form_for(@post) do |f| %>
+		<%= render 'shared/error_messages_posts' %>
+		<%= f.label :title %>
+		<%= f.text_field :title, placeholder: "Enter a Title.." %>		
+		<%= f.label :content %>
+		<%= f.text_area :content, class: 'tinymce' %>
+		
+		<%= tinymce %> 		<!--tinymce initializer-->
+
+		<br />
+		<%= f.submit "Create a new post", class: "btn btn-small btn-primary" %>
+		
+		<% end %>
+		</div>
+
+</div>
+
+</div>
