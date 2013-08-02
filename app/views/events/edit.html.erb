@@ -1,0 +1,29 @@
+<%provide(:title, 'Update Event')%>
+
+
+<h1>Update an existing Event</h1>
+
+
+<div class="row">
+	<div class="span6 offset0">
+		<div class="hero-unit">
+		<%= form_for(@event) do |f| %>
+		
+		<%= render 'shared/error_messages_events' %>	<!--Partial function defined in views/shared directory by convention-->
+
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+
+		<%= f.label :start_date %>
+		<%= f.date_select :start_date %>
+
+		<%= f.label :end_date %>
+		<%= f.date_select :end_date %>
+
+		<br />
+		<%= f.submit "Update event", class: "btn btn-small btn-primary" %>
+		
+		<% end %>
+		</div>
+	</div>
+</div>

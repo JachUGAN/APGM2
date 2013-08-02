@@ -1,0 +1,19 @@
+<% @events = Event.order("start_date ASC").all %>		<!--We get the events ordered by their start date -->
+<% @events.each do |event| %>
+	<% if event.end_date > Date.today then %>			<!--checks whether the event is still upcoming or ongoing -->
+		<p> <%= event.start_date.to_s + " To " + event.end_date.to_s %> </p>
+		<%= event.title %>
+		<br>
+		<% if can? :update, Event %>
+		<%= link_to "Edit Event", edit_event_path(event), class: "btn btn-mini btn-primary" %>
+		<% end %>
+
+		<% if can? :destroy, Event %>
+		<%= link_to "Delete Event", event, :confirm => "Are you sure you want to Delete this event", :method => :delete, class: "btn btn-mini btn-primary" %> 
+		<% end %>
+
+		<hr />
+	<% end %>
+<% end %>
+
+

@@ -1,11 +1,20 @@
 <% @posts.each do |post| %>
 
 	<h2> <%= link_to post.title, post %></h2>		<!-- rails automatically links to the post id when one clicks on it -->
-		<!--ADD THE REST LATER-->
+		<% if post.user.username != nil then %>
+			 <p> </p>
+		<%end%>
 	<p> <%=raw post.content %> </p>					<!-- we put 'raw' so that rails displays the test in the database correctly and not with the html tags -->	
-	<small>Author:  The: <%= post.created_at %></small>		
+	<small>Author: <%= post.user.first_name %> The: <%= post.created_at %></small>		
 	<p> 
-		<!--ADD THE REST FROM APGM 1 LATER -->
+		<% if can? :update, post %>
+		<%= link_to "Edit Post", edit_post_path(post), class: "btn btn-mini btn-primary" %> |
+		<% end %>
+
+		<% if can? :delete, post %>
+		<%= link_to "Delete Post", post, :confirm => "Are you sure you want to Delete this post", :method => :delete, class: "btn btn-mini btn-primary" %> 		
+		<% end %>
+		<!--2nd parameter is the post to delete, 3rd parameter is js popup, 4th parameter is the fuction that we want to perform (delete in our case) -->
 	</p>
 	<hr />			<!--Horizontal line to separate the posts-->
 <%end%>

@@ -1,0 +1,25 @@
+<% provide(:title, 'Edit Post')%>
+<h1>Edit Post</h1>
+
+<div class="row">
+	<div class="span9 offset0">
+		<div class="hero-unit">
+		<%= form_for(@post) do |f| %>
+		<%= render 'shared/error_messages_posts' %>
+		<%= f.label :title %>
+		<%= f.text_field :title %>
+		<%= f.label :content %>
+		<%= f.text_area :content, class: 'tinymce' %>
+
+		<%= tinymce %> 		<!--tinymce initializer-->
+
+		<br />
+		<%= f.submit "Update Post", class: "btn btn-large btn-primary" %>
+		
+		<% end %>
+
+		</div>
+			
+	</div>
+</div>
+	

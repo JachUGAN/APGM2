@@ -1,0 +1,80 @@
+<%provide(:title, @user.username)%>
+<div class="row">
+	
+	<body>
+		<div class="span12">
+			<h1 class="UserAvatar">
+				<%= gravatar_for @user %>
+				<%= @user.username.upcase %> 	
+				<br>
+			</h1>
+
+			
+			<p class="UserInfo">
+				<table class="profile">
+
+					<tr>
+						<th> Name: </th>
+						<td> <%= @user.first_name.capitalize + " " + @user.last_name.capitalize %> </td>
+					</tr>
+
+					<tr>
+						<th> Email: </th>
+						<td> <%= @user.email %> </td>
+					</tr>
+
+					<tr>
+						<th> Account Type: </th>
+						<td> <%= @user.role.capitalize %> </td>
+					</tr>
+
+					<tr>
+						<th> Rank: </th>
+						<td> 
+							<% if @user.rank? %>
+						 	<%=@user.rank %>
+						 	<% else %>
+						 	<%= "-" %>
+						 	<% end %>
+						 </td>
+					</tr>
+
+					<tr>
+						<th> City: </th>
+						<td>
+							<% if @user.city? %>
+						 	<%=@user.city.capitalize %>
+						 	<% else %>
+						 	<%= "-" %>
+						 	<% end %>
+						</td>
+					</tr>
+
+					<tr>
+						<th> Description: </th>
+						<td>
+							<% if @user.description? %>
+						 	<%=@user.description %>
+						 	<% else %>
+						 	<%= "-" %>
+						 	<% end %>
+						</td>
+					</tr>
+
+					<tr>
+						<th> Member Since: </th>
+						<td> <%= @user.created_at%> </td>
+					</tr>
+
+				</table>
+			</p>
+
+		</div>
+		
+
+	</body>
+
+	<aside class="span4">
+		
+	</aside>
+</div>

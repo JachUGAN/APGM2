@@ -39,12 +39,13 @@ gem 'annotate'
 gem 'validates_timeliness'
 gem 'cancan'
 gem 'tinymce-rails'
+gem 'rails_12factor'
 ####################
 
 
 
 # Use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # Use unicorn as the app server
 # gem 'unicorn'
@@ -53,4 +54,4 @@ gem 'tinymce-rails'
 # gem 'capistrano', group: :development
 
 # Use debugger
-# gem 'debugger', group: [:development, :test]
+gem 'debugger', group: [:development, :test]

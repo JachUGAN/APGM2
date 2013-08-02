@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+#load_and_authorize_resource    Doesn't seem to work with rails 4
 
  def home
   	@posts = Post.all
@@ -6,17 +7,15 @@ class PostsController < ApplicationController
 
   def new
   	@post = Post.new
-    #authorize! :create, @post
+    authorize! :create, @post
   end
 
   def create 		#This is associated with the create button in posts/new
-  	@post = Post.new(post_params)	#Here the new strong params use
+  	#@post = Post.new(post_params)	#Here the new strong params use
 		
     #@post = current_user.posts.build(params[:post])
 
-
-    
-
+    @post = current_user.posts.build(post_params)
     if @post.save
       		flash[:success] = "Post Created"
 			redirect_to @post        #sends to the post page
@@ -32,14 +31,15 @@ class PostsController < ApplicationController
 
   def edit
     @post = Post.find(params[:id])
-    #authorize! :update, @post
+    authorize! :update, @post
     
   end
 
   def update      #This is associated with the edit post function above
     @post = Post.find(params[:id])
 
-    if @post.update_attributes(params[:post])
+    #if @post.update_attributes(params[:post])
+    if @post.update_attributes(post_params)  
       flash[:success] = "Post Updated"
       redirect_to @post
     else
@@ -49,7 +49,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post = Post.find(params[:id])
-    #authorize! :destroy, @post
+    authorize! :destroy, @post
     @post.destroy
     flash[:success] = "Post Deleted"
     redirect_to root_path    

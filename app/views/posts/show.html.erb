@@ -1,0 +1,7 @@
+<% provide(:title, @post.title)%>	 <!-- we pass @post.title to have the article title up there -->
+<h1><%= @post.title %></h1>
+<% if @post.user.username != nil then %>
+	<p> Author: <%= @post.user.first_name %></p>
+<%end%>
+<p><%=raw @post.content %></p>
+<small><%= @post.created_at %></small>

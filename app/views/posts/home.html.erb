@@ -14,26 +14,42 @@
 		<small>Work in Progress</small>
 	</div>
 
-
-
 	<div class="row">
-	  <div class="span12">
-	  	
-	  
+		  <div class="span12">
+		  	
+		    <% if can? :create, User %>
+		    <h4><%=link_to "New User", newuser_path, class: "btn btn-small btn-primary" %>	</h4>	<!--IMPORTANT: Needs to be moved later on to some other place-->
+		    <% end %>
 
-	    <div class="row">
-	      <div class="span9">
+		    <div class="row">
+		      <div class="span9">
 
-					<%= render "shared/showposts" %>
+						<%= render "shared/showposts" %>
 
+						<% if can? :create, Post %>
+				    	<h4><%=link_to "New Post", new_post_path, class: "btn btn-small btn-primary" %>	</h4>	<!--the = is only used when we want to display something-->
+				    <% end %>
 					
-				</div>
+					</div>
 
-	      
-	    
-	    </div>
-	  </div>
-	</div>
+		      <div class="span3">
+		      	
+		      	<div class="eventsaside">
+		      		<h4 class="EventTitle">Events</h4>
+
+		      		<%= render "shared/showevents" %>		<!--Displays all the events that are in the partial-->
+
+			      	<% if can? :create, Event %>
+			      		<h4><%=link_to "New Event", newevent_path, class: "btn btn-small btn-primary" %>	</h4>
+			      	<% end %>
+
+		      	</div>
+		      	
+		      </div>
+		    
+		    </div>
+		  </div>
+		</div>
 
 </body>
 
