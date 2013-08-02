@@ -51,3 +51,10 @@ test:
   username: Jashman
   password: postgre
  
+production:
+  adapter: postgresql
+  encoding: unicode
+  database: APGM2_test
+  pool: 5
+  username: postgresql
+  password: postgresql
