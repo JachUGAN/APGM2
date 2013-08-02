@@ -53,8 +53,6 @@ test:
  
 production:
   adapter: postgresql
-  encoding: unicode
-  database: APGM2_test
-  pool: 5
-  username: postgresql
-  password: postgresql
+  host: localhost
+  database: app-dev
+  username: user
