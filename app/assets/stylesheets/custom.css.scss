@@ -116,13 +116,16 @@ textarea {
 
 }
 
-/*Profile Dropdown Menu */
+/*Profile Dropdown Menu ***************************************/
 
 .dropdown-menu {
-	padding: 5px 0;
-	margin: 15px 0 0	;
+	position: absolute;
+	padding: 0px 0;
+	margin: 13px 0 0	;
 	background-color: white;
 	left: -0px;
+	min-width: 150px;
+	list-style: none outside none;
 
 }
 
@@ -130,16 +133,19 @@ textarea {
 	display: inline-block;
 	padding: 3px 5px;
 	line-height: 15px;
-
+	min-width: 107px;
+	padding: 5px 20px;
+  white-space: nowrap;
 }
 
-.divider {
-    background-color: black;
-    border-bottom: 1px solid #FFFFFF;
+
+.dropdown-menu .divider {			/*Divider is not yet working :/*/
+    background-color: #E5E5E5;
     height: 1px;
-    margin: 9px 1px;
+    margin: 9px 0;
     overflow: hidden;
 }
+/****************************************************************/
 
 /* forms (new user, new article)*/
 input, textarea, select, .uneditable-input {
@@ -164,6 +170,23 @@ input, textarea, select, .uneditable-input {
 	@extend .error;
 }
 
+
+/*User List Page*/;
+.UserTable {
+	text-align: center;
+	border-collapse:collapse;
+	td {
+				width: 120px;
+	}
+}
+
+.UserHeaderTable 	{
+	//text-align: left;
+	border-collapse:collapse;
+	th {
+				width: 120px;
+	}
+}
 
 /*Hero Unit*/
 

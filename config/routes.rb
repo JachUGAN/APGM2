@@ -24,6 +24,8 @@ APGM2::Application.routes.draw do
   
   match '/signout', to: 'sessions#destroy', via: :delete  #via: :delete for the signout route, which indicated that it should be invoked using an HTTP DELETE request.
 
+  match '/userlist', to: 'users#user_list', via: 'get'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

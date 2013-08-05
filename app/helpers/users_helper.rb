@@ -7,4 +7,17 @@ module UsersHelper
 		image_tag(gravatar_url, alt: user.username, class: "gravatar")
 		end
 
+
+		def Role(user)
+			if user.role == "super"
+				"Super Admin"
+			elsif user.role == "admin"
+				"Admin"
+			elsif user.role == "author"
+				"Author"
+			elsif user.role == "normal"
+				"Normal User"
+			end
+		end	
+
 end

@@ -1,3 +1,4 @@
+<% @posts = Post.order("created_at ASC").all %>
 <% @posts.each do |post| %>
 
 	<h2> <%= link_to post.title, post %></h2>		<!-- rails automatically links to the post id when one clicks on it -->

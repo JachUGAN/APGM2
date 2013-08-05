@@ -42,7 +42,7 @@ class User < ActiveRecord::Base
 	validates :city, length: { maximum: 50 }
 	validates :description, length: { maximum: 200 }
 
-
+	#NEW 
 	#def User.new_remember_token
 	#  SecureRandom.urlsafe_base64
 	#end

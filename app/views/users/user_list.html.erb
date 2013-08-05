@@ -1,0 +1,35 @@
+<h2>Members List</h2>
+<br>
+
+<table class="UserHeaderTable" border="0">	<!--Border def here is necessary else the table wouldn't build the width css correctly -->
+	<tr>
+		<th>Username</th>
+		<th>Name</th>
+		<th>Role</th>
+		<th>City</th>
+		<th>Rank</th>
+		<th>Member Since</th>
+		<th>Edit</th>
+		</tr>
+</table>
+
+<% @users = User.order("first_name ASC").all %>
+<% @users.each do |user| %>
+
+<table class="UserTable" border="0">
+	<tr>
+		<td><h5> <%= link_to user.username, user %></h5></td>
+		<td> <%= user.first_name + " " + user.last_name %> </td>
+		<td> <%= Role(user) %> </td>	<!-- Role function can be found in the helpers-->
+		<td> <%= user.city ? user.city : "-" %> </td>	<!--Ternary condition operator -->
+		<td> <%= user.rank ? user.rank : "-" %> </td>
+		<td> <%= user.created_at.strftime("%d %b %Y") %> </td>
+		<% if can? :update, user %>
+			<td> <%= link_to "Edit", edit_user_path(user) %> </td>
+		<% end %>
+	</tr>
+</table> 
+
+<%end%>
+
+
