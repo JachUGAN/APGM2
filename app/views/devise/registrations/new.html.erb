@@ -1,0 +1,49 @@
+<%provide(:title, 'Create User')%>
+
+<h1>Create a new user</h1>
+
+<div class="row">
+	<div class="span6 offset0">
+		<div class="hero-unit">
+
+			<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+			  <%= devise_error_messages! %>
+
+			  <%= f.label :first_name %>
+				<%= f.text_field :first_name, :autofocus => true %>
+
+				<%= f.label :last_name %>
+				<%= f.text_field :last_name %>
+
+				<%= f.label :username %>
+				<%= f.text_field :username %>
+
+				<div><%= f.label :email %>
+			  <%= f.email_field :email %></div>
+
+				<%= f.label :role %>
+				
+				<!-- I need to restrict Admin and Super Creation to  Super Admin only (not even sure we should have more than 1 super) -->
+
+				<%= f.select :role, [['Normal','normal'],['Author','author'],['Admin','admin'],['Super Admin','super']]%>
+ 
+
+			  <div><%= f.label :password %>
+			  <%= f.password_field :password %></div>
+
+			  <div><%= f.label :password_confirmation %>
+			  <%= f.password_field :password_confirmation %></div>
+
+			  <div><%= f.submit "Create a new user", class: "btn btn-small btn-primary" %></div>
+				
+			<% end %>
+
+			<%= render "devise/shared/links" %>
+
+		</div>
+	</div>
+</div>
+
+
+
+

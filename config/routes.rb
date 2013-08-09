@@ -1,7 +1,9 @@
 APGM2::Application.routes.draw do
 
+  devise_for :users
+
   resources :posts      #Jach: This insures that the application answers to the RESTful URI, basically it will respond to a create action
-  resources :sessions, only: [:new, :create, :destroy]    #we don't nees the edit and show actions
+  #resources :sessions, only: [:new, :create, :destroy]    #we don't nees the edit and show actions
   resources :users
   resources :events
 
@@ -14,17 +16,21 @@ APGM2::Application.routes.draw do
  
   match '/edit_post', to: 'posts#edit', via: 'get'
 
-  match '/newuser', to: 'users#new_user', via: 'get'
+  #match '/newuser', to: 'users#new_user', via: 'get'
 
   match '/newevent', to: 'events#new', via: 'get'
   
   match '/edit_event', to: 'events#edit', via: 'get'
   
-  match '/signin', to: 'sessions#new', via: 'get'
+  #match '/signin', to: 'sessions#new', via: 'get'
   
-  match '/signout', to: 'sessions#destroy', via: :delete  #via: :delete for the signout route, which indicated that it should be invoked using an HTTP DELETE request.
+  #match '/signout', to: 'sessions#destroy', via: :delete  #via: :delete for the signout route, which indicated that it should be invoked using an HTTP DELETE request.
 
   match '/userlist', to: 'users#user_list', via: 'get'
+
+  devise_scope :user do
+    get "sign_in", :to => "devise/sessions#new"
+  end
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

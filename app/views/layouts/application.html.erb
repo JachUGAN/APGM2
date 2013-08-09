@@ -18,22 +18,31 @@
 </head>
 
 <body>
-<%= render 'layouts/header' %>		<!--calls  _header.html.erb-->
+	<%= render 'layouts/header' %>		<!--calls  _header.html.erb-->
 
+	<div id="wrap">
+		<div class="container">		<!--code to include a page content in the layout + container is a bootstrap function-->
+			
+			</br></br></br>
 
-<div class="container">		<!--code to include a page content in the layout + container is a bootstrap function-->
-	
-	<% flash.each do |key, value| %>		<!--Initialization of the flash messages for error display -->
-	<div class="alert alert-<%= key %>"><%= value %></div>
-	<% end %>
+			<% flash.each do |key, value| %>		<!--Initialization of the flash messages for error display -->
+			<div class="alert alert-<%= key %>"><%= value %></div>
+			<% end %>
 
+			
+			<%= yield %>
 
-	<%= yield %>
+			<%= debug(params) if Rails.env.development? %>
 
-	<%= debug(params) if Rails.env.development? %>
-</div>
+			
 
-<%= render 'layouts/footer' %>
+		</div>
+
+		<div class="push"></div>
+
+	</div>	
+
+	<%= render 'layouts/footer' %>
 
 </body>
 

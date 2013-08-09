@@ -34,12 +34,13 @@ group :doc do
 end
 
 #Gems added by me
-gem 'bootstrap-sass'
-gem 'annotate'
+gem 'bootstrap-sass', '2.3.2.1'
+gem 'annotate', '2.5.0'
 gem 'validates_timeliness'
-gem 'cancan'
-gem 'tinymce-rails'
+gem 'cancan', '1.6.10'
+gem 'tinymce-rails', '4.0.2' 
 gem 'rails_12factor'
+gem 'devise', '3.0.1'
 ####################
 
 

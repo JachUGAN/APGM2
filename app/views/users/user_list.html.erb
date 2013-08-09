@@ -25,7 +25,7 @@
 		<td> <%= user.rank ? user.rank : "-" %> </td>
 		<td> <%= user.created_at.strftime("%d %b %Y") %> </td>
 		<% if can? :update, user %>
-			<td> <%= link_to "Edit", edit_user_path(user) %> </td>
+			<td> <%= link_to "Edit", edit_user_registration_path %> </td>
 		<% end %>
 	</tr>
 </table> 

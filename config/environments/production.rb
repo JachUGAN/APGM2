@@ -77,4 +77,8 @@ APGM2::Application.configure do
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
   config.log_formatter = ::Logger::Formatter.new
+
+
+  #HOST DOMAIN HERE, your app should i think contain my app 
+  #config.action_mailer.default_url_options = { :host => 'yourapp.heroku.com' }
 end
