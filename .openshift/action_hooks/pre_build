@@ -1,5 +1,6 @@
 #!/bin/bash
- 
+
+source "${OPENSHIFT_RUBY_DIR}/lib/ruby_context"
 pushd ${OPENSHIFT_REPO_DIR} 1> /dev/null
 SAVED_GIT_DIR=$GIT_DIR
 unset GIT_DIR
