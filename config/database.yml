@@ -51,7 +51,7 @@ test:
   username: Jashman
   password: postgre
 
-production: 
+production:
   adapter: postgresql
   encoding: utf8
   reconnect: false
